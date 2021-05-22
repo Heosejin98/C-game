@@ -1,6 +1,8 @@
 #include "Human.h"
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
+using namespace std;
 
 Human::Human() {}
 Human::Human(string name) {
@@ -42,4 +44,9 @@ void Human::Shop(){
 }
 int Human::Set_money(){
 	return money;
+}
+void Human::State() {
+	cout << "===" << name << "==능력치" << "===" << endl;
+	cout << "HP : " << stat[5] << '/' << stat[0] << endl; // "현재 HP / 최대 HP"
+	cout << "MP : " << stat[5] << '/' << stat[0] << endl; // "현재 MP / 최대 MP"
 }

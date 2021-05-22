@@ -42,6 +42,9 @@
     <ClCompile Include="Archer.cpp">
       <Filter>소스 파일\HumanChild</Filter>
     </ClCompile>
+    <ClCompile Include="Action.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Life.h">
@@ -61,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="Archer.h">
       <Filter>헤더 파일\HumanChild</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

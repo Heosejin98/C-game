@@ -1,2 +1,3 @@
 C:\Users\sejin\OneDrive\바탕 화면\MonsterHunter\Debug\MonsterHunter.exe
 C:\Users\sejin\OneDrive\바탕 화면\MonsterHunter\Debug\MonsterHunter.pdb
+E:\대학교\객체지향프로그래밍\과제\기말 프로젝트\기말 프로젝트 최종\EvilHunter\C-game\MonsterHunter\Debug\MonsterHunter.exe

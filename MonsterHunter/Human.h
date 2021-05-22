@@ -22,9 +22,11 @@ protected:
 public:
 	Human();
 	Human(string name);
+	string job;
 	float Damage_Cal(int stat[]); //공격 데미지
 	double Use_item(double stat[]); //아이템 사용
 	void Shop(); //상점 열람
+	void State(); //캐릭터 상태 확인
 	int Set_money(); //
 
 };

@@ -8,8 +8,13 @@ using namespace std;
 class Archer : public Human {
 	
 public:
-	Archer() {}
-	Archer(string name) {}
+	
+	Archer() {
+		 job = "±Ã¼ö";
+	}
+	Archer(string name) {
+		job = "±Ã¼ö";
+	}
 	int Archer_skill(); //Àü»ç ½ºÅ³
 };
 #endif // !Wizard

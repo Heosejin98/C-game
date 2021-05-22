@@ -7,8 +7,13 @@ using namespace std;
 
 class Knight : public Human{
 public:
-	Knight() {}
-	Knight(string name) {}
+	Knight() {
+		job = "전사";
+	}
+	Knight(string name) 
+		 {
+		job = "전사";
+	}
 	int Knight_skill(); //전사 스킬
 };
 #endif // !Human

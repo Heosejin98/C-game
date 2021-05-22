@@ -7,8 +7,8 @@ using namespace std;
 
 class Wizard : public Human {
 public:
-	Wizard() {}
-	Wizard(string name) {}
+	Wizard() { job = "마법사"; }
+	Wizard(string name) { job = "마법사"; }
 	int Wizard_skill(); //전사 스킬
 };
 #endif // !Wizard
