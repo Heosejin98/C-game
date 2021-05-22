@@ -1,0 +1,7 @@
+﻿  Archer.cpp
+  Knight.cpp
+C:\Users\sejin\OneDrive\바탕 화면\MonsterHunter\Knight.cpp(5,29): error C2084: 'Knight::Knight(std::string)' 함수에 이미 본문이 있습니다.
+C:\Users\sejin\OneDrive\바탕 화면\MonsterHunter\Knight.h(11): message : '{ctor}'의 이전 정의를 참조하십시오.
+  main.cpp
+  Wizard.cpp
+  코드를 생성하고 있습니다...
