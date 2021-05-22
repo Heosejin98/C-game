@@ -4,9 +4,7 @@
 #include <iostream>
 using namespace std;
 
-Human::Human() {}
-Human::Human(string name) {
-	this->name = name;
+Human::Human() {
 	AP = 5;
 	Exp = 0;
 	Max_Exp = 10;
@@ -46,7 +44,14 @@ int Human::Set_money(){
 	return money;
 }
 void Human::State() {
-	cout << "===" << name << "==능력치" << "===" << endl;
+	cout << "=====능력치=====" << endl;
+	cout << "이름 : " << name << endl;
+	cout << "직업 : " << job << endl;
+	cout << "레벨 : " << stat[4] << endl;
+	cout << "경험치 : " << Exp << '/' << Max_Exp << endl; // "현재 경험치 / 최대 경험치"
 	cout << "HP : " << stat[5] << '/' << stat[0] << endl; // "현재 HP / 최대 HP"
-	cout << "MP : " << stat[5] << '/' << stat[0] << endl; // "현재 MP / 최대 MP"
+	cout << "MP : " << Current_MP << '/' << stat[0] << endl; // "현재 MP / 최대 MP"
+	cout << "공격력 : " << stat[2] << endl;
+	cout << "방어력 : " << stat[3] << endl;
+	cout << "=============" << endl;
 }

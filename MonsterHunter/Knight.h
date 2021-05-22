@@ -10,8 +10,8 @@ public:
 	Knight() {
 		job = "전사";
 	}
-	Knight(string name) 
-		 {
+	Knight(string name)  {
+		this->name = name;
 		job = "전사";
 	}
 	int Knight_skill(); //전사 스킬
