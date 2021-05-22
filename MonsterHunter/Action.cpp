@@ -7,7 +7,7 @@
 #include <iostream>
 using namespace std;
 
-static Human player;
+Human * player;
 
 void Action::Run() {
 	string name;
@@ -26,11 +26,11 @@ void Action::Run() {
 
 	system("cls");
 	if (job == 1)
-		player = Knight(name);
+		player = new Knight(name);
 	else if (job == 2)
-		player = Archer(name);
+		player = new Archer(name);
 	else if (job == 3)
-		player = Wizard(name);
+		player = new Wizard(name);
 
 	Show_main(name);
 
@@ -48,7 +48,6 @@ void Action::Show_main(string name) {
 
 	switch(choice)
 		case 1:
-			player.State();
+			player->State(); //캐릭터 상태 확인
 
 }
-
