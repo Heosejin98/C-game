@@ -6,7 +6,7 @@
 using namespace std;
 
 class Archer : public Human {
-	Human player;
+	//Human player;
 public:
 	Archer() {
 		job = "궁수";
@@ -16,6 +16,6 @@ public:
 		job = "궁수";
 	}
 	
-	int Archer_skill(); //전사 스킬
+	double job_skill(const double stat[], int skill_num); //전사 스킬
 };
 #endif // !Wizard

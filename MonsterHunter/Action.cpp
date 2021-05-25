@@ -11,7 +11,7 @@ Human * player;
 
 void Action::Run() {
 	string name;
-	
+	int skill;
 	int job = 0;
 	cout << "[EvilHunter]" << endl;
 	cout << "********** 환영합니다 !!!  **********" << endl;
@@ -32,7 +32,16 @@ void Action::Run() {
 	else if (job == 3)
 		player = new Wizard(name);
 
-	Show_main(name);
+
+	
+	cout << name + "님 사용하실 스킬을 고르세요 :";
+	cin >> skill;
+	double asd = player->job_skill(player->get_powerstat(), skill);
+
+	cout << "스킬사용" << asd << endl;
+
+
+	//Show_main(name);
 
 }
 
