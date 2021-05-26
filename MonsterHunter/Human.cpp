@@ -47,6 +47,7 @@ int Human::Set_money(){
 	return money;
 }
 void Human::State() {
+	string i;
 	cout << "=====능력치=====" << endl;
 	cout << "이름 : " << name << endl;
 	cout << "직업 : " << job << endl;
@@ -57,29 +58,40 @@ void Human::State() {
 	cout << "공격력 : " << stat[2] << endl;
 	cout << "방어력 : " << stat[3] << endl;
 	cout << "=============" << endl;
+	cout << "나가려면 아무 키나 누르세요";
+	cin >> i;
+	system("cls");
 }
 int Human::move_map() {
 	system("cls");
-	cout << "=====지역을 선택해주세요=====" << endl;
-	cout << "[ (1)숲 (2)사막 (3)버려진 도시 (4)엔드월드 (5)돌아가기 ]" << endl;
-	cout << "숫자를 입력해 주세요 : ";
-	int choice;
-	cin >> choice;
-	system("cls");
-	switch (choice) {
-	case 1:
-	case 2:
-	case 3:
-	case 4:
-	case 5:
-		return choice;
-		break;
-	default:
-		cout << "정확한 값을 입력하세요" << endl;
-	}
+	while (1) {
+		cout << "=====지역을 선택해주세요=====" << endl;
+		cout << "[ (1)숲 (2)사막 (3)버려진 도시 (4)엔드월드 (5)돌아가기 ]" << endl;
+		cout << "숫자를 입력해 주세요 : ";
+		int choice;
+		cin >> choice;
+		system("cls");
+		switch (choice) {
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+			return choice;
+			break;
+		default:
+			cout << "ERROR - 정확한 값을 입력하세요" << '\n' << endl;
+		}
+	} //while 종료
 }
 void Human::Player_Die() {
-	cout << "YOU DIED";
+	cout << '\n';
+	cout << "**************" << endl;
+	cout << "YOU DIED" << endl;
+	cout << "**************" << endl;
 	Die = true;
 	exit(EXIT_SUCCESS);
+}
+int Human::get_Current_MP() {
+	return Current_MP;
 }

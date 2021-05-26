@@ -30,5 +30,6 @@ public:
 	int Set_money();
 	int move_map();
 	void Player_Die(); //플레이어 죽음
+	int get_Current_MP();
 };
 #endif

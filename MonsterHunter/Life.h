@@ -15,6 +15,7 @@ public:
 	string name; //이름
 	Life();
 	double get_stat(int i); //get 스텟
+	void set_stat(int i, int b); //set 스텟
 	void input_damage(double attack); //데미지 계산
 	bool get_Die();
 };

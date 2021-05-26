@@ -22,3 +22,6 @@ void Life::input_damage(double attack) {
 bool Life::get_Die() {
 	return Die;
 }
+void Life::set_stat(int i, int b) {
+	stat[i] = b;
+}
