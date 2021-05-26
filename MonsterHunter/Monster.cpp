@@ -19,12 +19,12 @@ Monster::Monster(int map){
 	switch (this->map) {
 	case 1:
 		name = "슬라임";
-		stat[0] = 10; //최대 HP
+		stat[0] = 20; //최대 HP
 		stat[1] = 10; //최대 MP
 		stat[2] = 2; //공격력
 		stat[3] = 2; //방어력
 		stat[4] = 1; //레벨
-		stat[5] = 10; //현재 HP
+		stat[5] = 20; //현재 HP
 		break;
 	case 2:
 		name = "꿈틀이";
@@ -36,4 +36,8 @@ Monster::Monster(int map){
 		name = "엔더타이거";
 		break;
 	}
+}
+void Monster::Monster_Die() {
+	cout << name << "이 죽었습니다!" << endl;
+	Die = true; //죽으면 true
 }

@@ -29,5 +29,6 @@ public:
 	void State(); //캐릭터 상태 확인
 	int Set_money();
 	int move_map();
+	void Player_Die(); //플레이어 죽음
 };
 #endif

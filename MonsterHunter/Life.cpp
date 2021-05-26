@@ -3,8 +3,6 @@
 #include <iostream>
 using namespace std;
 
-
-
 Life::Life() {
 	stat[0] = 50; // 최대HP
 	stat[1] = 50; // 최대MP
@@ -12,12 +10,15 @@ Life::Life() {
 	stat[3] = 10; //방어력
 	stat[4] = 1; //레벨
 	stat[5] = 50; //현재 HP
-	
 
 	name = "인간1";
 };
-
-void Die(){
-	cout << "You Die";
-	exit(EXIT_SUCCESS);
+double Life::get_stat(int i) {
+	return stat[i];
+}
+void Life::input_damage(double attack) {
+	stat[5] -= attack;
+}
+bool Life::get_Die() {
+	return Die;
 }

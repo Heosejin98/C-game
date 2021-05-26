@@ -6,7 +6,6 @@
 using namespace std;
 
 class Archer : public Human {
-	//Human player;
 public:
 	Archer() {
 		job = "±Ã¼ö";

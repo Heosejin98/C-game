@@ -78,3 +78,8 @@ int Human::move_map() {
 		cout << "정확한 값을 입력하세요" << endl;
 	}
 }
+void Human::Player_Die() {
+	cout << "YOU DIED";
+	Die = true;
+	exit(EXIT_SUCCESS);
+}
