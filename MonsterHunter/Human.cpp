@@ -1,4 +1,7 @@
+#include <windows.h>
 #include "Human.h"
+#include "Monster.h"
+#include "Action.h"
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
@@ -54,4 +57,24 @@ void Human::State() {
 	cout << "공격력 : " << stat[2] << endl;
 	cout << "방어력 : " << stat[3] << endl;
 	cout << "=============" << endl;
+}
+int Human::move_map() {
+	system("cls");
+	cout << "=====지역을 선택해주세요=====" << endl;
+	cout << "[ (1)숲 (2)사막 (3)버려진 도시 (4)엔드월드 (5)돌아가기 ]" << endl;
+	cout << "숫자를 입력해 주세요 : ";
+	int choice;
+	cin >> choice;
+	system("cls");
+	switch (choice) {
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+	case 5:
+		return choice;
+		break;
+	default:
+		cout << "정확한 값을 입력하세요" << endl;
+	}
 }

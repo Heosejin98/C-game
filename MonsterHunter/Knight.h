@@ -14,7 +14,7 @@ public:
 		this->name = name;
 		job = "전사";
 	}
-	double job_skill(const double stat[], int skill_num); //전사 스킬
+	double job_skill(const double stat[]); //전사 스킬
 };
 #endif // !Human
 

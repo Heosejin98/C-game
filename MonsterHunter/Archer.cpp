@@ -4,7 +4,11 @@
 using namespace std;
 
 
-double Archer::job_skill(const double stat[], int skill_num) {
+double Archer::job_skill(const double stat[]) {
+	int skill_num;
+	cout << "[ (1)더블 샷 (2)애로우 레인 (3)파이어 샷 (4)파이널 샷 ]" << endl;
+	cout << "숫자를 입력해 주세요 : ";
+	cin >> skill_num;
 	double skill_dmg = 0;
 	switch (skill_num)
 	{

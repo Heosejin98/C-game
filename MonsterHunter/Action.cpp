@@ -1,6 +1,7 @@
 #include <windows.h> //화면 지우기 사용
 #include "Action.h"
 #include "Human.h"
+#include "Monster.h"
 #include "Archer.h"
 #include "Knight.h"
 #include "Wizard.h"
@@ -32,19 +33,8 @@ void Action::Run() {
 	else if (job == 3)
 		player = new Wizard(name);
 
-
-	
-	cout << name + "님 사용하실 스킬을 고르세요 :";
-	cin >> skill;
-	double asd = player->job_skill(player->get_powerstat(), skill);
-
-	cout << "스킬사용" << asd << endl;
-
-
-	//Show_main(name);
-
+	Show_main(name);
 }
-
 
 void Action::Show_main(string name) {
 	int choice;
@@ -55,8 +45,63 @@ void Action::Show_main(string name) {
 	cin >> choice;
 	system("cls");
 
-	switch(choice)
-		case 1:
-			player->State(); //캐릭터 상태 확인
+	switch (choice) {
+	case 1:
+		player->State(); //캐릭터 상태 확인
+		break;
+	case 2:
+		int map = player->move_map();
+		Monster* M1 = new Monster(map); //int를 string으로
+		fight(player, M1, map);
+		break;
+	}
+}
 
+void Action::fight(Human* P1, Monster* M1, int map) {
+	int choice;
+	if (map == 1) {
+		cout << "=====[숲]=====" << endl;
+		cout << M1->name << "이(가) 나타났다!" << endl;
+		cout << "=============" << endl;
+		cout << P1->name << "의 선택은?" << endl;
+		cout << "[ (1)공격 (2)스킬 (3)도망가기 ]" << endl;
+		cout << "숫자를 입력해 주세요 : ";
+		cin >> choice;
+		cout << '\n';
+		switch (choice) {
+		case 1:
+			break;
+		case 2:
+			cout << P1->name + " 턴의 스킬 사용!" << endl;
+			double skill_damage = player->job_skill(player->get_powerstat());
+			cout << "스킬사용" << skill_damage << endl;
+		}
+	}
+	else if (map == 2) {
+		cout << "=====[사막]=====" << endl;
+		cout << M1->name << "이(가) 나타났다!" << endl;
+		cout << "=============" << endl;
+		cout << "당신의 선택은?" << endl;
+		cout << "[ (1)공격 (2)스킬 (3)도망가기 ]" << endl;
+		cout << "숫자를 입력해 주세요 : ";
+		cin >> choice;
+	}
+	else if (map == 3) {
+		cout << "=====[버려진 도시]=====" << endl;
+		cout << M1->name << "이(가) 나타났다!" << endl;
+		cout << "=============" << endl;
+		cout << "당신의 선택은?" << endl;
+		cout << "[ (1)공격 (2)스킬 (3)도망가기 ]" << endl;
+		cout << "숫자를 입력해 주세요 : ";
+		cin >> choice;
+	}
+	else if (map == 4) {
+		cout << "=====[엔드월드]=====" << endl;
+		cout << M1->name << "이(가) 나타났다!" << endl;
+		cout << "=============" << endl;
+		cout << "당신의 선택은?" << endl;
+		cout << "[ (1)공격 (2)스킬 (3)도망가기 ]" << endl;
+		cout << "숫자를 입력해 주세요 : ";
+		cin >> choice;
+	}
 }

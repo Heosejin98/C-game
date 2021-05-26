@@ -21,12 +21,13 @@ protected:
 public:
 	Human();
 	string job;
-	virtual double job_skill(const double stat[], int skill_num) = 0; // 직업별 스킬 사용 순수 가상함수
+	virtual double job_skill(const double stat[]) = 0; // 직업별 스킬 사용 순수 가상함수
 	const double* get_powerstat() const { return stat; }
 	float Damage_Cal(int stat[]); //공격 데미지
 	double Use_item(double stat[]); //아이템 사용
 	void Shop(); //상점 열람
 	void State(); //캐릭터 상태 확인
 	int Set_money();
+	int move_map();
 };
 #endif

@@ -16,6 +16,6 @@ public:
 		job = "궁수";
 	}
 	
-	double job_skill(const double stat[], int skill_num); //전사 스킬
+	double job_skill(const double stat[]); //궁수 스킬
 };
 #endif // !Wizard

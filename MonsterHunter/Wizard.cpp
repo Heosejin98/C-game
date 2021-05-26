@@ -4,7 +4,11 @@
 using namespace std;
 
 
-double Wizard::job_skill(const double stat[], int skill_num) {
+double Wizard::job_skill(const double stat[]) {
+	int skill_num;
+	cout << "[ (1)법사 임 (2)더블 샷 (3)에로우 레인 (4)파이널 샷 ]" << endl;
+	cout << "숫자를 입력해 주세요 : ";
+	cin >> skill_num;
 	double skill_dmg = 0;
 	switch (skill_num)
 	{
