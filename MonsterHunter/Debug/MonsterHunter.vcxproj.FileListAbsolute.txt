@@ -1,2 +1,4 @@
 C:\Users\sejin\OneDrive\바탕 화면\C5.25\MonsterHunter\Debug\MonsterHunter.exe
 C:\Users\sejin\OneDrive\바탕 화면\C5.25\MonsterHunter\Debug\MonsterHunter.pdb
+C:\Users\sejin\OneDrive\바탕 화면\test\MonsterHunter\Debug\MonsterHunter.exe
+C:\Users\sejin\OneDrive\바탕 화면\test\MonsterHunter\Debug\MonsterHunter.pdb

@@ -9,6 +9,9 @@
 #include "Wizard.h"
 #include <iostream>
 #include "Life.h"
+#include "Accessory.h"
+#include "item.h"
+
 using namespace std;
 
 Human * player;
@@ -70,6 +73,10 @@ void Action::Show_main(string name) {
 				fight(player, M1, map);
 				break;
 			}
+			case 3: {
+				Shop();
+				break;
+			}
 			}
 		}
 		else if (choice == 5) {
@@ -91,7 +98,7 @@ void Action::fight(Human* P1, Monster* M1, int map) {
 		cout << M1->name << "이(가) 나타났다!" << endl;
 		while (P1->get_Die() == false && M1->get_Die() == false && escape == false) {	//플레이어나 몬스터가 죽을때 까지 반복
 			cout << "=============" << endl;
-			cout << "--[" + P1->name + "]의 HP : " << P1->get_stat(5) <<" / MP : " << P1->get_Current_MP() << " / 레벨 : " << M1->get_stat(4) << endl;
+			cout << "--[" + P1->name + "]의 HP : " << P1->get_stat(5) <<" / MP : " << P1->get_Current_MP() << " / 레벨 : " << P1->get_stat(4) << endl;
 			cout << "--[" + M1->name + "]의 HP : " << M1->get_stat(5) << " / 레벨 : " << M1->get_stat(4) << endl;
 			cout << "=============" << endl;
 			cout << '\n';
@@ -131,7 +138,7 @@ void Action::fight(Human* P1, Monster* M1, int map) {
 		cout << M1->name << "이(가) 나타났다!" << endl;
 		while (P1->get_Die() == false && M1->get_Die() == false && escape == false) {	//플레이어나 몬스터가 죽을때 까지 반복
 			cout << "=============" << endl;
-			cout << "--[" + P1->name + "]의 HP : " << P1->get_stat(5) << " / MP : " << P1->get_Current_MP() << " / 레벨 : " << M1->get_stat(4) << endl;
+			cout << "--[" + P1->name + "]의 HP : " << P1->get_stat(5) << " / MP : " << P1->get_Current_MP() << " / 레벨 : " << P1->get_stat(4) << endl;
 			cout << "--[" + M1->name + "]의 HP : " << M1->get_stat(5) << " / 레벨 : " << M1->get_stat(4) << endl;
 			cout << "=============" << endl;
 			cout << '\n';
@@ -170,7 +177,7 @@ void Action::fight(Human* P1, Monster* M1, int map) {
 		cout << M1->name << "이(가) 나타났다!" << endl;
 		while (P1->get_Die() == false && M1->get_Die() == false && escape == false) {	//플레이어나 몬스터가 죽을때 까지 반복
 			cout << "=============" << endl;
-			cout << "--[" + P1->name + "]의 HP : " << P1->get_stat(5) << " / MP : " << P1->get_Current_MP() << " / 레벨 : " << M1->get_stat(4) << endl;
+			cout << "--[" + P1->name + "]의 HP : " << P1->get_stat(5) << " / MP : " << P1->get_Current_MP() << " / 레벨 : " << P1->get_stat(4) << endl;
 			cout << "--[" + M1->name + "]의 HP : " << M1->get_stat(5) << " / 레벨 : " << M1->get_stat(4) << endl;
 			cout << "=============" << endl;
 			cout << '\n';
@@ -209,7 +216,7 @@ void Action::fight(Human* P1, Monster* M1, int map) {
 		cout << M1->name << "이(가) 나타났다!" << endl;
 		while (P1->get_Die() == false && M1->get_Die() == false && escape == false) {	//플레이어나 몬스터가 죽을때 까지 반복
 			cout << "=============" << endl;
-			cout << "--[" + P1->name + "]의 HP : " << P1->get_stat(5) << " / MP : " << P1->get_Current_MP() << " / 레벨 : " << M1->get_stat(4) << endl;
+			cout << "--[" + P1->name + "]의 HP : " << P1->get_stat(5) << " / MP : " << P1->get_Current_MP() << " / 레벨 : " << P1->get_stat(4) << endl;
 			cout << "--[" + M1->name + "]의 HP : " << M1->get_stat(5) << " / 레벨 : " << M1->get_stat(4) << endl;
 			cout << "=============" << endl;
 			cout << '\n';
@@ -243,11 +250,12 @@ void Action::fight(Human* P1, Monster* M1, int map) {
 	}
 }
 void Action::attack_fight(Human* P1, Monster* M1, double attack) { //일반공격 함수
+	double Player_attack;
 	cout << P1->name + "의 공격!" << endl;
-	attack = P1->get_stat(2); //플레이어 공격
+	Player_attack = P1->Damage_Cal(); //플레이어 공격
 	M1->input_damage(attack); //공격 데미지 구현
 	Sleep(800); //0.8초 딜레이
-	cout << P1->name + "은" << P1->get_stat(2) << "의 공격을 했다!" << endl;
+	cout << P1->name + "은" << Player_attack << "의 공격을 했다!" << endl;
 	cout << '\n';
 
 	if (M1->get_stat(5) <= 0) //몬스터 체력이 0 이하가 되면 몬스터 죽임
@@ -315,6 +323,105 @@ bool Action::escape_run(Human* P1, Monster* M1, double attack, bool escape) {
 	}
 	return escape;
 }
+
+void Action::Shop() {
+	cout << "상점입니다." << endl;
+	cout << "(1) 장신구 상점 (2) 물약 상점 (3) 메인화면으로 " << endl;
+	int select;
+	cin >> select;
+	switch (select)
+		{
+		case 1: // 장신구 상점 들어옴
+			int accessory_buy;
+
+			cout << "(1) 나무반지 [공격력 : +10 / 방어력 : +10 / 가격 : 1000G]" << endl;
+			cout << "(2) 은반지 [공격력 : +10 / 방어력 : +50 5000G]" << endl;
+			cout << "(3) 금반지 [공격력 : +50 / 방어력 : +10 5000G]" << endl;
+			cout << "(4) 절대반지 [공격력 : +1024 / 방어력 : +50 100000G]" << endl;
+			cout << "구매 하실 장신구를 선택하세요 !";
+			cin >> accessory_buy;
+			switch (accessory_buy)
+			{
+			
+					case 1: { // 나무반지 구매 후 
+						if (player->get_money() >= 1000) {
+							Accessory* a = new Accessory("나무반지", 10, 10, 1000);
+							player->set_money(a->price, false); // false 빼기
+							player->item_stat[0] = a->power;
+							player->item_stat[1] = a->defense;
+							cout << "구매 성공!" << endl;
+							cout << "장비 공격력 : " << player->item_stat[0] << endl;
+							cout << "장비 방어력 : " << player->item_stat[0] << endl;
+							break;}
+						else
+							cout << "재화가 부족합니다!" << endl;
+						break;
+					}
+				
+			
+					case 2: { //은반지 구매 후 장착
+						if (player->get_money() <= 5000) {
+							player->set_money(5000, false); // false 빼기
+							Accessory* a = new Accessory("은반지", 10, 50, 5000);
+							player->set_money(a->price, false); // false 빼기
+							player->item_stat[0] = a->power;
+							player->item_stat[1] = a->defense;
+							cout << "구매 성공!" << endl;
+							cout << "장비 공격력 : " << player->item_stat[0] << endl;
+							cout << "장비 방어력 : " << player->item_stat[0] << endl;
+							break;
+						}
+						else
+							cout << "재화가 부족합니다!";
+						break;}
+
+					case 3: {
+						if (player->get_money() <= 5000) {
+							player->set_money(5000, false); // false 빼기
+							Accessory* a = new Accessory("은반지", 10, 50, 5000);
+							player->set_money(a->price, false); // false 빼기
+							player->item_stat[0] = a->power;
+							player->item_stat[1] = a->defense;
+							cout << "구매 성공!" << endl;
+							cout << "장비 공격력 : " << player->item_stat[0] << endl;
+							cout << "장비 방어력 : " << player->item_stat[0] << endl;
+							break;
+						}
+						else
+							cout << "재화가 부족합니다!";
+						break;}
+
+					case 4: {
+						if (player->get_money() >= 10000) {
+							Accessory* a = new Accessory("절대반지", 1024, 50, 100000);
+							player->set_money(a->price, false); // false 빼기
+							player->item_stat[0] = a->power;
+							player->item_stat[1] = a->defense;
+							cout << "구매 성공!" << endl;
+							cout << "장비 공격력 : " << player->item_stat[0] << endl;
+							cout << "장비 방어력 : " <<player->item_stat[0] << endl;
+
+
+							break;
+						}
+						else
+							cout << "재화가 부족합니다!";
+						break;}
+				
+				}
+				
+
+		case 2:
+		default:
+		break;
+
+		}
+	system("PAUSE"); //계속하려면 아무 키나 누르십시오
+	system("cls");
+}
+
+
+	
 /*
 stat[6] = 0 : 최대HP, 1 : 최대MP, 2 : 공격력, 3 : 방어력, 4 : 레벨, 5 : 현재HP
 map = (1)숲 (2)사막 (3)버려진 도시 (4)엔드월드 (5)돌아가기

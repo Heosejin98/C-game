@@ -17,7 +17,7 @@ public:
 	Life();
 	double get_stat(int i); //get 스텟 (스텟 이용 시)
 	void full_HP(); //HP 풀 회복
-	void set_money(int a); //set 재화
+	void set_money(int a, bool oper); //set 재화
 	int get_Exp();
 	void set_Exp(int a); //set 경험치
 	void input_damage(double attack); //데미지 계산

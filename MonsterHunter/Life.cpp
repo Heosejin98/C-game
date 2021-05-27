@@ -25,8 +25,11 @@ bool Life::get_Die() {
 void Life::full_HP() {
 	stat[5] = stat[0];
 }
-void Life::set_money(int a) {
-	money += a;
+void Life::set_money(int a, bool oper) {
+	if (oper)
+		money += a;
+	else
+		money -= a;
 }
 int Life::get_Exp() {
 	return Exp;

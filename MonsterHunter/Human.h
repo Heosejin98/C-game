@@ -18,14 +18,16 @@ protected:
 public:
 	Human();
 	string job;
+	int item_stat[2];
 	virtual double job_skill(const double stat[]) = 0; // 직업별 스킬 사용 순수 가상함수
 	const double* get_powerstat() const { return stat; }
-	float Damage_Cal(int stat[]); //공격 데미지
+	float Damage_Cal(); //공격 데미지
 	double Use_item(double stat[]); //아이템 사용
 	void Shop(); //상점 열람
 	void State(); //캐릭터 상태 확인
 	int Set_money();
 	int move_map();
+	int get_money();
 	void Player_Die(); //플레이어 죽음
 	double get_Current_MP();
 	void full_MP(); //MP 풀 회복

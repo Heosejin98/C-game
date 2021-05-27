@@ -9,6 +9,7 @@ class Action{
 	void skill_fight(Human* P1, Monster* M1, double attack); //스킬 공격
 	bool escape_run(Human* P1, Monster* M1, double attack, bool escape); //도망
 	void Exit(); //나가기
+	void Shop(); //상점 열람
 public:
 	Action() {};
 	void Run(); //실행 함수

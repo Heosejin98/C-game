@@ -12,7 +12,10 @@ Human::Human() {
 	Exp = 0;
 	Max_Exp = 2;
 	Current_MP = 50;
-	money = 0;
+	money = 100000;
+	item_stat[0] = 0;
+	item_stat[1] = 0;
+
 }
 void Human::Level_Up() { //4 : 레벨
 	//stat[6] = 0 : 최대HP, 1 : 최대MP, 2 : 공격력, 3 : 방어력, 4 : 레벨, 5 : 현재HP
@@ -34,15 +37,17 @@ int Human::Use_AP(int AP){
 
 	return 0;
 }
-float Human::Damage_Cal(int stat[]){
+float Human::Damage_Cal(){
 
 	float Damage;
 	srand((unsigned)time(0));
 	int ren = (rand() % 10);
-	if (ren == 1)
-		Damage = stat[2] * 1.5;
+	if (ren >= 5){
+		cout << "치명타 ! " << endl;
+		Damage = (stat[2]+item_stat[0] ) * 1.5;
+	}
 	else
-		Damage = stat[2] * 1.1;
+		Damage = (stat[2] + item_stat[0] ) * 1.1;
 
 	return Damage;
 }
@@ -68,6 +73,9 @@ void Human::State() {
 	cout << "MP : " << Current_MP << '/' << stat[0] << endl; // "현재 MP / 최대 MP"
 	cout << "공격력 : " << stat[2] << endl;
 	cout << "방어력 : " << stat[3] << endl;
+	cout << "착용 장비 : " << "임시" << endl;
+	cout << "장비 공격력 : " << item_stat[0] << endl;
+	cout << "장비 방어력 : " << item_stat[1] << endl;
 	cout << "=============" << endl;
 	system("PAUSE"); //계속하려면 아무 키나 누르십시오
 	system("cls");
@@ -108,6 +116,9 @@ double Human::get_Current_MP() {
 }
 int Human::get_Max_Exp() {
 	return Max_Exp;
+}
+int Human::get_money() {
+	return money;
 }
 void Human::full_MP() {
 	Current_MP = stat[1];

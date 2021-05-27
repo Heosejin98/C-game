@@ -22,7 +22,7 @@ double Archer::job_skill(const double stat[]) {
 			case 1: {
 				if (Current_MP >= Use_MP[0]) { //MP 확인
 					cout << "[더블 샷] 사용 !" << endl;
-					skill_dmg = stat[2] * 1.5;
+					skill_dmg = (stat[2] + item_stat[0]) * 1.5;
 					Current_MP -= 10; //MP 감소
 				}
 				else
@@ -33,7 +33,7 @@ double Archer::job_skill(const double stat[]) {
 				if (Current_MP >= Use_MP[1]) {
 					if (stat[4] >= 3) {
 						cout << "[고정 사격]  사용 !" << endl;
-						skill_dmg = stat[2] * 2;
+						skill_dmg = (stat[2] + item_stat[0]) * 2;
 						Current_MP -= 15;
 						break;
 					}
@@ -49,7 +49,7 @@ double Archer::job_skill(const double stat[]) {
 				if (Current_MP >= Use_MP[2]) {
 					if (stat[4] >= 5) {
 						cout << "[애로우 레인] 사용 !" << endl;
-						skill_dmg = stat[2] * 3;
+						skill_dmg = (stat[2] + item_stat[0]) * 3;
 						Current_MP -= 30;
 						break;
 					}
@@ -65,7 +65,7 @@ double Archer::job_skill(const double stat[]) {
 				if (Current_MP >= Use_MP[3]) {
 					if (stat[4] >= 10) {
 						cout << "[파이어 샷] 사용 !!" << endl;
-						skill_dmg = stat[2] * 5;
+						skill_dmg = (stat[2] + item_stat[0]) * 5;
 						Current_MP -= 50;
 						break;
 					}

@@ -19,6 +19,12 @@
     <Filter Include="소스 파일\HumanChild">
       <UniqueIdentifier>{7617207a-feaa-4cd4-8eb7-e5dfd4263e20}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\item">
+      <UniqueIdentifier>{dd680dbf-4390-4fb7-b42c-aa0c6c9a4f9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\NewFilter1">
+      <UniqueIdentifier>{4abcdb3f-a95e-4e3d-8db6-774aff9153ef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -45,6 +51,12 @@
     <ClCompile Include="Action.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Accessory.cpp">
+      <Filter>소스 파일\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="item.cpp">
+      <Filter>소스 파일\NewFilter1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Life.h">
@@ -67,6 +79,12 @@
     </ClInclude>
     <ClInclude Include="Action.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="item.h">
+      <Filter>헤더 파일\item</Filter>
+    </ClInclude>
+    <ClInclude Include="Accessory.h">
+      <Filter>헤더 파일\item</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
