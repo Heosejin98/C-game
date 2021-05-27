@@ -22,11 +22,14 @@ void Life::input_damage(double attack) {
 bool Life::get_Die() {
 	return Die;
 }
-void Life::set_stat(int i, int b) {
-	stat[i] = b;
+void Life::full_HP() {
+	stat[5] = stat[0];
 }
 void Life::set_money(int a) {
 	money += a;
+}
+int Life::get_Exp() {
+	return Exp;
 }
 void Life::set_Exp(int a) {
 	Exp += a;

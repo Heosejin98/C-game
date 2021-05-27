@@ -7,10 +7,9 @@ using namespace std;
 
 class Human : public Life{
 	int AP; //어빌리티 포인터
-	void Level_Up(); //레벨 업
 protected:
-	int Max_Exp; //최대 경험치
-	int Current_MP; //현재 MP
+	float Max_Exp; //최대 경험치
+	double Current_MP; //현재 MP
 	//waeapon inventory_weapon[30]; //플레이어 장비 인벤토리
 	//item inventory_item[50]; // 플레이어 소비 인벤토리
 
@@ -28,6 +27,9 @@ public:
 	int Set_money();
 	int move_map();
 	void Player_Die(); //플레이어 죽음
-	int get_Current_MP();
+	double get_Current_MP();
+	void full_MP(); //MP 풀 회복
+	int get_Max_Exp();
+	void Level_Up(); //레벨 업
 };
 #endif

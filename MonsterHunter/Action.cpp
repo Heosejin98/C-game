@@ -50,9 +50,10 @@ void Action::Show_main(string name) {
 	//stat[6] = 0 : 최대HP, 1 : 최대MP, 2 : 공격력, 3 : 방어력, 4 : 레벨, 5 : 현재HP
 	while (1) {
 		cout << "=====" + name + "님의 메인화면입니다 =====" << endl;
-		if (player->get_stat(0) != player->get_stat(5)) { //체력 자동 회복
-			player->set_stat(5, player->get_stat(0)); //현재HP를 최대 HP로 변경
-			cout << "-체력이 모두 회복되었습니다-" << '\n' << endl;
+		if (player->get_stat(0) != player->get_stat(5) || player->get_Current_MP() != player->get_stat(1)) { //체력 자동 회복
+			player->full_HP();
+			player->full_MP();
+			cout << "-체력과 마나가 모두 회복되었습니다-" << '\n' << endl;
 		}
 		cout << "[ (1)캐릭터 상태 확인 (2)사냥터 선택 (3)상점 (4)인벤토리 열람 (5)나가기 ]" << endl;
 		cout << "숫자를 입력해 주세요 : ";
@@ -71,8 +72,10 @@ void Action::Show_main(string name) {
 			}
 			}
 		}
-		else if (choice == 5)
+		else if (choice == 5) {
+			cout << "=====정상적으로 게임이 종료되었습니다=====" << endl;
 			break;
+		}
 		else
 			cout << "ERROR - 정확한 값을 입력하세요" << '\n' << endl;
 	} //while 종료
@@ -107,8 +110,10 @@ void Action::fight(Human* P1, Monster* M1, int map) {
 					skill_fight(P1, M1, attack);
 					break;
 				case 3:
-					escape_run(P1, M1, attack, escape);
+					escape = escape_run(P1, M1, attack, escape);
 					break;
+				default:
+					cout << "ERROR - 정확한 값을 입력하세요" << endl;
 				}
 		} // while문 끝
 
@@ -145,7 +150,7 @@ void Action::fight(Human* P1, Monster* M1, int map) {
 				skill_fight(P1, M1, attack);
 				break;
 			case 3:
-				escape_run(P1, M1, attack, escape);
+				escape = escape_run(P1, M1, attack, escape);
 				break;
 			}
 		} // while문 끝
@@ -184,7 +189,7 @@ void Action::fight(Human* P1, Monster* M1, int map) {
 				skill_fight(P1, M1, attack);
 				break;
 			case 3:
-				escape_run(P1, M1, attack, escape);
+				escape = escape_run(P1, M1, attack, escape);
 				break;
 			}
 		} // while문 끝
@@ -223,7 +228,7 @@ void Action::fight(Human* P1, Monster* M1, int map) {
 				skill_fight(P1, M1, attack);
 				break;
 			case 3:
-				escape_run(P1, M1, attack, escape);
+				escape = escape_run(P1, M1, attack, escape);
 				break;
 			}
 		} // while문 끝
@@ -256,8 +261,6 @@ void Action::attack_fight(Human* P1, Monster* M1, double attack) { //일반공격 함
 	}
 	if (P1->get_stat(5) <= 0) { //플레이어 죽음
 		Sleep(800); //0.8초 딜레이
-		cout << P1->name + "은" << attack << "의 데미지를 입었다!" << endl;
-		Sleep(300);
 		P1->Player_Die();
 	}
 	Sleep(800); //0.8초 딜레이
@@ -265,7 +268,6 @@ void Action::attack_fight(Human* P1, Monster* M1, double attack) { //일반공격 함
 }
 void Action::skill_fight(Human* P1, Monster* M1, double attack) { //스킬 함수
 	double skill_damage;
-	cout << P1->name + "의 스킬 사용!" << endl;
 	Sleep(500);
 	skill_damage = player->job_skill(player->get_powerstat());
 	M1->input_damage(skill_damage); //공격(스킬) 데미지 구현
@@ -285,18 +287,17 @@ void Action::skill_fight(Human* P1, Monster* M1, double attack) { //스킬 함수
 	}
 	if (P1->get_stat(5) <= 0) { //플레이어 죽음
 		Sleep(800);
-		cout << P1->name + "은 " << attack << "의 데미지를 입었다!" << endl;
 		P1->Player_Die();
 	}
 	cout << '\n';
 }
-void Action::escape_run(Human* P1, Monster* M1, double attack, bool escape) {
+bool Action::escape_run(Human* P1, Monster* M1, double attack, bool escape) {
 	srand((unsigned)time(0)); //시간 초기화
-	int i = rand() % 5 + 1; //1~5사이의 숫자 (=1/5확률)
+	int i = rand() % 2 + 1; //1~5사이의 숫자 (=1/5확률)
 	cout << "도망을 시도중...!" << endl;
 	Sleep(800);
 	system("cls");
-	if (i == 5) //도망 성공
+	if (i == 2) //도망 성공
 		escape = true;
 	else {
 		cout << "도망 실패!" << endl;
@@ -310,9 +311,9 @@ void Action::escape_run(Human* P1, Monster* M1, double attack, bool escape) {
 	}
 	if (P1->get_stat(5) <= 0) { //플레이어 죽음
 		Sleep(800);
-		cout << P1->name + "은" << attack << "의 데미지를 입었다!" << endl;
 		P1->Player_Die();
 	}
+	return escape;
 }
 /*
 stat[6] = 0 : 최대HP, 1 : 최대MP, 2 : 공격력, 3 : 방어력, 4 : 레벨, 5 : 현재HP

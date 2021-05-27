@@ -10,12 +10,22 @@ using namespace std;
 Human::Human() {
 	AP = 5;
 	Exp = 0;
-	Max_Exp = 10;
+	Max_Exp = 2;
 	Current_MP = 50;
 	money = 0;
 }
 void Human::Level_Up() { //4 : 레벨
-	stat[4]++;
+	//stat[6] = 0 : 최대HP, 1 : 최대MP, 2 : 공격력, 3 : 방어력, 4 : 레벨, 5 : 현재HP
+	Max_Exp *= 1.5; //Max Exp 증가
+	stat[0] *= 1.8; //최대 HP 1.8배 증가
+	stat[1] *= 1.2; //최대 MP 1.2배 증가
+	stat[2] *= 1.5; //공격력 1.5배 증가
+	stat[3] *= 1.55; //방어력 1.55배 증가
+	stat[4]++; //레벨 증가
+
+	stat[5] = stat[0]; //증가된 HP로 회복
+	Current_MP = stat[1]; //증가된 MP로 회복
+	Exp = 0; //현재 Exp 0으로 초기화
 }
 string Human::Open_Inventory(string inventory){
 	return 0;
@@ -90,8 +100,15 @@ void Human::Player_Die() {
 	cout << "YOU DIED" << endl;
 	cout << "**************" << endl;
 	Die = true;
+	system("PAUSE"); //계속하려면 아무 키나 누르십시오
 	exit(EXIT_SUCCESS);
 }
-int Human::get_Current_MP() {
+double Human::get_Current_MP() {
 	return Current_MP;
+}
+int Human::get_Max_Exp() {
+	return Max_Exp;
+}
+void Human::full_MP() {
+	Current_MP = stat[1];
 }

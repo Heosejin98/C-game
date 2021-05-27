@@ -57,10 +57,18 @@ Monster::Monster(int map){
 	}
 }
 void Monster::Monster_Die(Human* P1) {
-	cout << "-----" << name << "ÀÌ Á×¾ú½À´Ï´Ù!-----" << endl;
+	cout << "-----" << name << "ÀÌ(°¡) Á×¾ú½À´Ï´Ù!-----" << endl;
 	P1->set_money(money); //HumanÀÇ money += ¸ó½ºÅÍÀÇ money
 	P1->set_Exp(Exp);
 	cout << money << "ÀÇ µ· È¹µæ!" << endl;
 	cout << Exp << "ÀÇ °æÇèÄ¡ È¹µæ!" << endl;
+
+	if (P1->get_Exp() >= P1->get_Max_Exp()) {
+		P1->Level_Up();
+		cout << "-----·¹º§¾÷!!-----" << endl;
+		cout << "Lv." << P1->get_stat(4) - 1 << " -> LV." << P1->get_stat(4) << endl;
+		cout << "----------------" << endl;
+	}
+
 	Die = true; //Á×À¸¸é true
 }
