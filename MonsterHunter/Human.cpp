@@ -12,7 +12,7 @@ Human::Human() {
 	Exp = 0;
 	Max_Exp = 10;
 	Current_MP = 50;
-	money = 9999999;
+	money = 0;
 }
 void Human::Level_Up() { //4 : 레벨
 	stat[4]++;
@@ -47,19 +47,19 @@ int Human::Set_money(){
 	return money;
 }
 void Human::State() {
-	string i;
 	cout << "=====능력치=====" << endl;
 	cout << "이름 : " << name << endl;
 	cout << "직업 : " << job << endl;
 	cout << "레벨 : " << stat[4] << endl;
+	cout << "재화 : " << money << endl;
+	cout << "---------------" << endl;
 	cout << "경험치 : " << Exp << '/' << Max_Exp << endl; // "현재 경험치 / 최대 경험치"
 	cout << "HP : " << stat[5] << '/' << stat[0] << endl; // "현재 HP / 최대 HP"
 	cout << "MP : " << Current_MP << '/' << stat[0] << endl; // "현재 MP / 최대 MP"
 	cout << "공격력 : " << stat[2] << endl;
 	cout << "방어력 : " << stat[3] << endl;
 	cout << "=============" << endl;
-	cout << "나가려면 아무 키나 누르세요";
-	cin >> i;
+	system("PAUSE"); //계속하려면 아무 키나 누르십시오
 	system("cls");
 }
 int Human::move_map() {

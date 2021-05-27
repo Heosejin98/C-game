@@ -1,4 +1,5 @@
 #include "Life.h"
+#include "Human.h"
 #pragma once
 #include <string>
 #ifndef __Monster__H_
@@ -16,7 +17,7 @@ public:
 	int get_drop_money(); 
 	Monster();
 	Monster(int map); // 1. 숲 / 2. 사막 / 3. 버려진 도시 / 4. 엔드월드
-	void Monster_Die();
+	void Monster_Die(Human* P1);
 };
 
 #endif

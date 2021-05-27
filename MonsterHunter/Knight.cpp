@@ -1,5 +1,5 @@
 #include "Knight.h"
-#include "Knight.h"
+#include <windows.h>
 
 #include <string>
 #include <iostream>
@@ -11,6 +11,7 @@ double Knight::job_skill(const double stat[]) {
 	cout << "[ (1)이중 베기 (2)더블 샷 (3)에로우 레인 (4)파이널 샷 ]" << endl;
 	cout << "숫자를 입력해 주세요 : ";
 	cin >> skill_num;
+	cout << '\n';
 	double skill_dmg = 0;
 	switch (skill_num)
 	{

@@ -1,4 +1,5 @@
 #include "Monster.h"
+#include "Human.h"
 #include <iostream>
 using namespace std;
 
@@ -17,6 +18,8 @@ Monster::Monster(int map){
 		stat[3] = 2; //방어력
 		stat[4] = 1; //레벨
 		stat[5] = 20; //현재 HP
+		money = 5;
+		Exp = 2;
 		break;
 	case 2:
 		name = "꿈틀이";
@@ -26,6 +29,8 @@ Monster::Monster(int map){
 		stat[3] = 10; //방어력
 		stat[4] = 5; //레벨
 		stat[5] = 40; //현재 HP
+		money = 20;
+		Exp = 10;
 		break;
 	case 3:
 		name = "기계생명체";
@@ -35,6 +40,8 @@ Monster::Monster(int map){
 		stat[3] = 15; //방어력
 		stat[4] = 10; //레벨
 		stat[5] = 100; //현재 HP
+		money = 50;
+		Exp = 30;
 		break;
 	case 4:
 		name = "엔더타이거";
@@ -44,10 +51,16 @@ Monster::Monster(int map){
 		stat[3] = 30; //방어력
 		stat[4] = 30; //레벨
 		stat[5] = 1024; //현재 HP
+		money = 100;
+		Exp = 50;
 		break;
 	}
 }
-void Monster::Monster_Die() {
-	cout << name << "이 죽었습니다!" << endl;
+void Monster::Monster_Die(Human* P1) {
+	cout << "-----" << name << "이 죽었습니다!-----" << endl;
+	P1->set_money(money); //Human의 money += 몬스터의 money
+	P1->set_Exp(Exp);
+	cout << money << "의 돈 획득!" << endl;
+	cout << Exp << "의 경험치 획득!" << endl;
 	Die = true; //죽으면 true
 }

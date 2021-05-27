@@ -9,8 +9,6 @@ class Human : public Life{
 	int AP; //어빌리티 포인터
 	void Level_Up(); //레벨 업
 protected:
-	int money; //화폐
-	int Exp; //경험치
 	int Max_Exp; //최대 경험치
 	int Current_MP; //현재 MP
 	//waeapon inventory_weapon[30]; //플레이어 장비 인벤토리

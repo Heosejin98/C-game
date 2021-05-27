@@ -25,3 +25,9 @@ bool Life::get_Die() {
 void Life::set_stat(int i, int b) {
 	stat[i] = b;
 }
+void Life::set_money(int a) {
+	money += a;
+}
+void Life::set_Exp(int a) {
+	Exp += a;
+}

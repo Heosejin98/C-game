@@ -1,4 +1,5 @@
 #include "Archer.h"
+#include <windows.h>
 #include <string>
 #include <iostream>
 using namespace std;
@@ -9,6 +10,7 @@ double Archer::job_skill(const double stat[]) {
 	cout << "[ (1)더블 샷 (2)애로우 레인 (3)파이어 샷 (4)파이널 샷 ]" << endl;
 	cout << "숫자를 입력해 주세요 : ";
 	cin >> skill_num;
+	cout << '\n';
 	double skill_dmg = 0;
 	switch (skill_num)
 	{
