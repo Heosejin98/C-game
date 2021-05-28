@@ -78,6 +78,10 @@ void Action::Show_main(string name) {
 				Shop();
 				break;
 			}
+			case 4: {
+				  cout << "(1) 빨간 물약 / " << player->Drugs[0] << "개" << endl;
+				  cout << "(2) 파란 물약 / " << player->Drugs[1] << "개" << endl;
+				  cout << "(3) 엘릭서 / " << player->Drugs[2] << "개" << endl;}
 			}
 		}
 		else if (choice == 5) {
@@ -95,174 +99,55 @@ void Action::fight(Human* P1, Monster* M1, int map) {
 	bool escape = false; //도망 (true = 도망, false = 실패)
 	if (map == 1) {
 		cout << "=====[숲]=====" << endl;
-		Sleep(500); //0.5초 딜레이
-		cout << M1->name << "이(가) 나타났다!" << endl;
-		while (P1->get_Die() == false && M1->get_Die() == false && escape == false) {	//플레이어나 몬스터가 죽을때 까지 반복
-			cout << "=============" << endl;
-			cout << "--[" + P1->name + "]의 HP : " << P1->get_stat(5) <<" / MP : " << P1->get_Current_MP() << " / 레벨 : " << P1->get_stat(4) << endl;
-			cout << "--[" + M1->name + "]의 HP : " << M1->get_stat(5) << " / 레벨 : " << M1->get_stat(4) << endl;
-			cout << "=============" << endl;
-			cout << '\n';
-			cout << P1->name << "의 선택은?" << endl;
-			cout << "[ (1)공격 (2)스킬 (3) 물약 사용 (4)도망가기 ]" << endl;
-			cout << "숫자를 입력해 주세요 : ";
-			cin >> choice;
-			cout << '\n';
-			system("cls");
-				switch (choice) {
-				case 1: //일반 공격
-					attack_fight(P1, M1, attack);
-					break;
-				case 2: //스킬
-					skill_fight(P1, M1, attack);
-					break;
-				case 3: //물약 사용
-					use_Drugs(P1);
-					break;
-				case 4:
-					escape = escape_run(P1, M1, attack, escape);
-					break;
-				default:
-					cout << "ERROR - 정확한 값을 입력하세요" << endl;
-				}
-		} // while문 끝
-
-		if (M1->get_Die() == true)
-			cout << "전투 승리!" << endl;
-		else if (escape == true)
-			cout << "=====전투에서 도망갔습니다=====" << endl;
-		cout << '\n';
-		system("PAUSE"); //계속하려면 아무 키나 누르십시오
-		system("cls");
 	}
 	else if (map == 2) {
 		cout << "=====[사막]=====" << endl;
-		Sleep(500); //0.5초 딜레이
-		cout << M1->name << "이(가) 나타났다!" << endl;
-		while (P1->get_Die() == false && M1->get_Die() == false && escape == false) {	//플레이어나 몬스터가 죽을때 까지 반복
-			cout << "=============" << endl;
-			cout << "--[" + P1->name + "]의 HP : " << P1->get_stat(5) << " / MP : " << P1->get_Current_MP() << " / 레벨 : " << P1->get_stat(4) << endl;
-			cout << "--[" + M1->name + "]의 HP : " << M1->get_stat(5) << " / 레벨 : " << M1->get_stat(4) << endl;
-			cout << "=============" << endl;
-			cout << '\n';
-			cout << P1->name << "의 선택은?" << endl;
-			cout << "[ (1)공격 (2)스킬 (3) 물약 사용 (4)도망가기 ]" << endl;
-			cout << "숫자를 입력해 주세요 : ";
-			cin >> choice;
-			cout << '\n';
-			system("cls");
-			switch (choice) {
-			case 1: //일반 공격
-				attack_fight(P1, M1, attack);
-				break;
-			case 2: //스킬
-				skill_fight(P1, M1, attack);
-				break;
-			case 3: //물약 사용
-				use_Drugs(P1);
-				break;
-			case 4:
-				escape = escape_run(P1, M1, attack, escape);
-				break;
-			default:
-				cout << "ERROR - 정확한 값을 입력하세요" << endl;
-			}
-		} // while문 끝
-
-		if (M1->get_Die() == true)
-			cout << "전투 승리!" << endl;
-		else if (escape == true)
-			cout << "=====전투에서 도망갔습니다=====" << endl;
-		cout << '\n';
-		system("PAUSE"); //계속하려면 아무 키나 누르십시오
-		system("cls");
-
 	}
 	else if (map == 3) {
 		cout << "=====[버려진 도시]=====" << endl;
-		Sleep(500); //0.5초 딜레이
-		cout << M1->name << "이(가) 나타났다!" << endl;
-		while (P1->get_Die() == false && M1->get_Die() == false && escape == false) {	//플레이어나 몬스터가 죽을때 까지 반복
-			cout << "=============" << endl;
-			cout << "--[" + P1->name + "]의 HP : " << P1->get_stat(5) << " / MP : " << P1->get_Current_MP() << " / 레벨 : " << P1->get_stat(4) << endl;
-			cout << "--[" + M1->name + "]의 HP : " << M1->get_stat(5) << " / 레벨 : " << M1->get_stat(4) << endl;
-			cout << "=============" << endl;
-			cout << '\n';
-			cout << P1->name << "의 선택은?" << endl;
-			cout << "[ (1)공격 (2)스킬 (3) 물약 사용 (4)도망가기 ]" << endl;
-			cout << "숫자를 입력해 주세요 : ";
-			cin >> choice;
-			cout << '\n';
-			system("cls");
-			switch (choice) {
-			case 1: //일반 공격
-				attack_fight(P1, M1, attack);
-				break;
-			case 2: //스킬
-				skill_fight(P1, M1, attack);
-				break;
-			case 3: //물약 사용
-				use_Drugs(P1);
-				break;
-			case 4:
-				escape = escape_run(P1, M1, attack, escape);
-				break;
-			default:
-				cout << "ERROR - 정확한 값을 입력하세요" << endl;
-			}
-		} // while문 끝
-
-		if (M1->get_Die() == true)
-			cout << "전투 승리!" << endl;
-		else if (escape == true)
-			cout << "=====전투에서 도망갔습니다=====" << endl;
-		cout << '\n';
-		system("PAUSE"); //계속하려면 아무 키나 누르십시오
-		system("cls");
-
 	}
 	else if (map == 4) {
 		cout << "=====[엔드월드]=====" << endl;
-		Sleep(500); //0.5초 딜레이
-		cout << M1->name << "이(가) 나타났다!" << endl;
-		while (P1->get_Die() == false && M1->get_Die() == false && escape == false) {	//플레이어나 몬스터가 죽을때 까지 반복
-			cout << "=============" << endl;
-			cout << "--[" + P1->name + "]의 HP : " << P1->get_stat(5) << " / MP : " << P1->get_Current_MP() << " / 레벨 : " << P1->get_stat(4) << endl;
-			cout << "--[" + M1->name + "]의 HP : " << M1->get_stat(5) << " / 레벨 : " << M1->get_stat(4) << endl;
-			cout << "=============" << endl;
-			cout << '\n';
-			cout << P1->name << "의 선택은?" << endl;
-			cout << "[ (1)공격 (2)스킬 (3) 물약 사용 (4)도망가기 ]" << endl;
-			cout << "숫자를 입력해 주세요 : ";
-			cin >> choice;
-			cout << '\n';
-			system("cls");
-			switch (choice) {
-			case 1: //일반 공격
-				attack_fight(P1, M1, attack);
-				break;
-			case 2: //스킬
-				skill_fight(P1, M1, attack);
-				break;
-			case 3: //물약 사용
-				use_Drugs(P1);
-				break;
-			case 4:
-				escape = escape_run(P1, M1, attack, escape);
-				break;
-			default:
-				cout << "ERROR - 정확한 값을 입력하세요" << endl;
-			}
-		} // while문 끝
-
-		if (M1->get_Die() == true)
-			cout << "전투 승리!" << endl;
-		else if (escape == true)
-			cout << "=====전투에서 도망갔습니다=====" << endl;
-		cout << '\n';
-		system("PAUSE"); //계속하려면 아무 키나 누르십시오
-		system("cls");
 	}
+	Sleep(500); //0.5초 딜레이
+	cout << M1->name << "이(가) 나타났다!" << endl;
+	while (P1->get_Die() == false && M1->get_Die() == false && escape == false) {	//플레이어나 몬스터가 죽을때 까지 반복
+		cout << "=============" << endl;
+		cout << "--[" + P1->name + "]의 HP : " << P1->get_stat(5) << " / MP : " << P1->get_Current_MP() << " / 레벨 : " << P1->get_stat(4) << endl;
+		cout << "--[" + M1->name + "]의 HP : " << M1->get_stat(5) << " / 레벨 : " << M1->get_stat(4) << endl;
+		cout << "=============" << endl;
+		cout << '\n';
+		cout << P1->name << "의 선택은?" << endl;
+		cout << "[ (1)공격 (2)스킬 (3) 물약 사용 (4)도망가기 ]" << endl;
+		cout << "숫자를 입력해 주세요 : ";
+		cin >> choice;
+		cout << '\n';
+		system("cls");
+		switch (choice) {
+		case 1: //일반 공격
+			attack_fight(P1, M1, attack);
+			break;
+		case 2: //스킬
+			skill_fight(P1, M1, attack);
+			break;
+		case 3: //물약 사용
+			use_Drugs(P1);
+			break;
+		case 4:
+			escape = escape_run(P1, M1, attack, escape);
+			break;
+		default:
+			cout << "ERROR - 정확한 값을 입력하세요" << endl;
+		}
+	} // while문 끝
+
+	if (M1->get_Die() == true)
+		cout << "전투 승리!" << endl;
+	else if (escape == true)
+		cout << "=====전투에서 도망갔습니다=====" << endl;
+	cout << '\n';
+	system("PAUSE"); //계속하려면 아무 키나 누르십시오
+	system("cls");
 }
 void Action::attack_fight(Human* P1, Monster* M1, double attack) { //일반공격 함수
 	double Player_attack;
@@ -483,7 +368,13 @@ void Action::use_Drugs(Human* P1) {
 					cout << "[빨간 물약] 사용!" << endl;
 					cout << "HP : " << P1->get_stat(5);
 					P1->Drugs[0] --;
-					P1->set_stat(5, 10); //stat[5] += 10
+					if (P1->get_stat(5) + 10 > P1->get_stat(1))//현재체력+10 > 현재체력 55 > 50
+					{
+						P1->full_HP();
+					}
+					else {
+						P1->set_stat(5, 10); //stat[5] += 10
+					}
 					cout << " -> " << P1->get_stat(5);
 				}
 			} //if (choice == 1) 종료
@@ -494,7 +385,14 @@ void Action::use_Drugs(Human* P1) {
 					cout << "[파란 물약] 사용!" << endl;
 					cout << "MP : " << P1->get_Current_MP();
 					P1->Drugs[1] --;
-					P1->set_Current_MP(10); //stat[5] += 10
+					if (P1->get_Current_MP() + 10 > P1->get_stat(2))//현재체력+10 > 현재 마나 
+					{
+						P1->full_MP();
+					}
+					else {
+						P1->set_Current_MP(10); //stat[5] += 10
+					}
+
 					cout << " -> " << P1->get_Current_MP();
 				}
 			}
@@ -505,16 +403,25 @@ void Action::use_Drugs(Human* P1) {
 					cout << "[엘릭서] 사용!" << endl;
 					P1->Drugs[2] --;
 					cout << "HP : " << P1->get_stat(5);
-					P1->set_stat(5, 100);
+					if (P1->get_stat(5) + 10 > P1->get_stat(1))//현재체력+10 > 현재체력
+					{
+						P1->full_HP();
+					}
+					else {
+						P1->set_stat(5, 100); //stat[5] += 10
+					}
 					cout << " -> " << P1->get_stat(5);
-					cout << "MP : " << P1->get_Current_MP();
-					P1->set_Current_MP(100);
+					cout << "/ MP : " << P1->get_Current_MP();
+					if (P1->get_Current_MP() + 100 > P1->get_stat(2))//현재체력+10 > 현재마나
+					{
+						P1->full_MP();
+					}
+					else {						P1->set_Current_MP(100); //stat[5] += 10] += 10					}
 					cout << " -> " << P1->get_Current_MP();
 				}
-			}
+			} //if (choice <= 3) 종료
 			break;
-		} //if (choice <= 3) 종료
-
+		}
 		else {
 			cout << "ERROR - 정확한 값을 입력하세요" << '\n' << endl;
 		}

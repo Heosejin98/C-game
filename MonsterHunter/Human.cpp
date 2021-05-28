@@ -30,8 +30,10 @@ void Human::Level_Up() { //4 : 레벨
 	Current_MP = stat[1]; //증가된 MP로 회복
 	Exp = 0; //현재 Exp 0으로 초기화
 }
-string Human::Open_Inventory(string inventory){
-	return 0;
+void Human::Open_Inventory(){
+	cout << "(1) 빨간 물약 / " << Drugs[0] << "개" << endl;
+	cout << "(2) 파란 물약 / " << Drugs[1] << "개" << endl;
+	cout << "(3) 엘릭서 / " << Drugs[2] << "개" << endl;
 }
 int Human::Use_AP(int AP){
 

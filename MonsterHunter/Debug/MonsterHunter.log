@@ -1,11 +1,3 @@
 ﻿  Action.cpp
-C:\Users\sejin\OneDrive\바탕 화면\test\MonsterHunter\Action.cpp(21,6): warning C4101: 'skill' :참조되지 않은 지역 변수입니다.
-  Archer.cpp
-  Human.cpp
-C:\Users\sejin\OneDrive\바탕 화면\test\MonsterHunter\Human.cpp(47,36): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\sejin\OneDrive\바탕 화면\test\MonsterHunter\Human.cpp(50,38): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\sejin\OneDrive\바탕 화면\test\MonsterHunter\Human.cpp(118,9): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Knight.cpp
-  Wizard.cpp
-  코드를 생성하고 있습니다...
-  MonsterHunter.vcxproj -> C:\Users\sejin\OneDrive\바탕 화면\test\MonsterHunter\Debug\MonsterHunter.exe
+C:\Users\sejin\OneDrive\바탕 화면\5.29C++\MonsterHunter\Action.cpp(22,6): warning C4101: 'skill' :참조되지 않은 지역 변수입니다.
+C:\Users\sejin\OneDrive\바탕 화면\5.29C++\MonsterHunter\Action.cpp(354): fatal error C1075: '{': 일치하는 토큰을 찾을 수 없습니다.
