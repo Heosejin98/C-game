@@ -12,7 +12,7 @@ Human::Human() {
 	Exp = 0;
 	Max_Exp = 2;
 	Current_MP = 50;
-	money = 100000;
+	money = 99999;
 	item_stat[0] = 0;
 	item_stat[1] = 0;
 
@@ -44,7 +44,7 @@ float Human::Damage_Cal(){
 	int ren = (rand() % 10);
 	if (ren >= 5){
 		cout << "Ä¡¸íÅ¸ ! " << endl;
-		Damage = (stat[2]+item_stat[0] ) * 1.5;
+		Damage = (stat[2] + item_stat[0] ) * 1.5;
 	}
 	else
 		Damage = (stat[2] + item_stat[0] ) * 1.1;
@@ -122,4 +122,7 @@ int Human::get_money() {
 }
 void Human::full_MP() {
 	Current_MP = stat[1];
+}
+void Human::set_Current_MP(double a) {
+	Current_MP += a;
 }

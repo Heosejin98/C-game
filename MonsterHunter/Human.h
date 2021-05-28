@@ -29,9 +29,11 @@ public:
 	int move_map();
 	int get_money();
 	void Player_Die(); //플레이어 죽음
+	void set_Current_MP(double a);
 	double get_Current_MP();
 	void full_MP(); //MP 풀 회복
 	int get_Max_Exp();
 	void Level_Up(); //레벨 업
+	int Drugs[3]{0, 0, 0}; //1-빨간물약, 2-파란물약, 3-엘릭서
 };
 #endif

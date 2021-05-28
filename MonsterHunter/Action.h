@@ -1,6 +1,8 @@
 #pragma once
 #include "Monster.h"
 #include "Human.h"
+#include "Accessory.h"
+#include "Drug.h"
 
 class Action{
 	void Show_main(string name); //메인화면 제어
@@ -10,6 +12,9 @@ class Action{
 	bool escape_run(Human* P1, Monster* M1, double attack, bool escape); //도망
 	void Exit(); //나가기
 	void Shop(); //상점 열람
+	void buy_Accessory(Accessory* a);
+	void buy_Drug(Drug* a);
+	void use_Drugs(Human* P1); //물약 사용
 public:
 	Action() {};
 	void Run(); //실행 함수

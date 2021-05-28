@@ -37,3 +37,6 @@ int Life::get_Exp() {
 void Life::set_Exp(int a) {
 	Exp += a;
 }
+void Life::set_stat(int i, int b) {
+	stat[i] += b;
+}
