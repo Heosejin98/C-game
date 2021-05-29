@@ -7,12 +7,8 @@ using namespace std;
 
 class Wizard : public Human {
 public:
-	Wizard() { 
-		job = "마법사"; 
-	}
-	Wizard(string name) {
-		this->name = name; 
-		job = "마법사"; }
+	Wizard();
+	Wizard(string name);
 
 	double job_skill(const double stat[]); //마법사 스킬
 };

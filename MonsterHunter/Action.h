@@ -12,10 +12,12 @@ class Action{
 	void skill_fight(Human* P1, Monster* M1, double attack); //스킬 공격
 	bool escape_run(Human* P1, Monster* M1, double attack, bool escape); //도망
 	void Exit(); //나가기
+
 	void Shop(); //상점
 	void buy_Accessory(Accessory* a);
 	void buy_Drug(Drug* a);
 	void use_Drugs(Human* P1); //물약 사용
+
 	void show_item(); //인벤토리 열람
 public:
 	Action() {};

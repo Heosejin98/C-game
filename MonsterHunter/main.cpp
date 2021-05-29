@@ -1,8 +1,8 @@
 #include "Action.h"
 
 int main() {
-	Action A;
-	A.Run();
+	Action Game;
+	Game.Run(); //실행 함수
 
 	return 0;
 }

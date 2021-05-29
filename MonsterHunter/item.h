@@ -4,11 +4,11 @@
 #define __Itme__H_
 using namespace std;
 
-class item
-{
+class item{
 public:
-	string itemname;
-	int price;
+	string itemname; //아이템 이름
+	int price; //가격
+
 	item() {};
 };
 #endif

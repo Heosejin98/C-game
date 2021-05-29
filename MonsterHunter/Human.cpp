@@ -8,11 +8,10 @@
 using namespace std;
 
 Human::Human() {
-	AP = 5;
 	Exp = 0;
 	Max_Exp = 10;
 	Current_MP = 30;
-	money = 0;
+	money =0;
 	item_stat[0] = 0;
 	item_stat[1] = 0;
 
@@ -34,10 +33,6 @@ void Human::Open_Inventory(){
 	std::cout << "(1) 빨간 물약 / " << Drugs[0] << "개" << endl;
 	std::cout << "(2) 파란 물약 / " << Drugs[1] << "개" << endl;
 	std::cout << "(3) 엘릭서 / " << Drugs[2] << "개" << endl;
-}
-int Human::Use_AP(int AP){
-
-	return 0;
 }
 float Human::Damage_Cal(){
 

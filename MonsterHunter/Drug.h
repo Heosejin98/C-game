@@ -4,12 +4,10 @@
 #define _DRUG_H_
 class Drug : public item{
 public:
-	int plus_HP;
-	int plus_MP;
+	int plus_HP; //물약의 HP 회복량
+	int plus_MP; //물약의 MP 회복량
+
 	Drug() {};
-	Drug(string itemname, int plus_HP, int plus_MP, int price) {
-		this->itemname = itemname; this->plus_HP = plus_HP; this->plus_MP = plus_MP;
-		this->price = price;
-	}
+	Drug(string itemname, int plus_HP, int plus_MP, int price); //itemname : 아이템이름, plus_HP : HP 회복량, plus_MP : MP 회복량, price : 가격
 };
 #endif

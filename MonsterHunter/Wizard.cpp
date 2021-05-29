@@ -3,7 +3,13 @@
 #include <string>
 #include <iostream>
 using namespace std;
-
+Wizard::Wizard() {
+	job = "마법사";
+}
+Wizard::Wizard(string name) {
+	this->name = name;
+	job = "마법사";
+}
 double Wizard::job_skill(const double stat[]) {
 	int skill_num;
 	double skill_dmg = 0;

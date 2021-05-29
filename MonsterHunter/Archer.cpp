@@ -2,7 +2,13 @@
 #include <windows.h>
 #include <string>
 #include <iostream>
-
+Archer::Archer() {
+	job = "±Ã¼ö";
+}
+Archer::Archer(string name) {
+	this->name = name;
+	job = "±Ã¼ö";
+}
 
 double Archer::job_skill(const double stat[]) {
 	int skill_num;

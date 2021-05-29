@@ -3,7 +3,13 @@
 
 #include <string>
 #include <iostream>
-
+Knight::Knight() {
+	job = "전사";
+}
+Knight::Knight(string name) {
+	this->name = name;
+	job = "전사";
+}
 
 double Knight::job_skill(const double stat[]) {
 	int skill_num;

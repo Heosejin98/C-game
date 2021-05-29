@@ -1,17 +1,20 @@
-#include <iostream>
+#include "Action.h"
 #include <windows.h> //화면 지우기 사용
 #include <cstdlib> // =C의 stdlib.h
 #include <ctime> //시간 헤더
-#include "Action.h"
+
+#include "Life.h"
 #include "Human.h"
-#include "Monster.h"
 #include "Archer.h"
 #include "Knight.h"
 #include "Wizard.h"
-#include "Life.h"
+#include "Monster.h"
+
 #include "Accessory.h"
 #include "item.h"
 #include "Drug.h"
+
+#include <iostream>
 using namespace std;
 
 Human * player;
@@ -267,25 +270,28 @@ void Action::Shop() { //상점
 						}
 						else
 							std::cout << "===골드가 부족합니다!===" << endl;
+						system("PAUSE");
 						break;
 					}
 					case 2: { //은반지 구매 후 장착
-						if (player->get_money() <= 140) {
+						if (player->get_money() >= 140) {
 							Accessory* Silver = new Accessory("은반지", 10, 20, 140);
 							buy_Accessory(Silver);
 							break;
 						}
 						else
-							std::cout << "===골드가 부족합니다!===";
+							std::cout << "===골드가 부족합니다!===" << endl;
+						system("PAUSE");
 						break;}
 					case 3: {
-						if (player->get_money() <= 250) {
+						if (player->get_money() >= 250) {
 							Accessory* Gold = new Accessory("금반지", 25, 15, 250);
 							buy_Accessory(Gold);
 							break;
 						}
 						else
-							std::cout << "===골드가 부족합니다!===";
+							std::cout << "===골드가 부족합니다!===" << endl;
+						system("PAUSE");
 						break;}
 					case 4: {
 						if (player->get_money() >= 400) {
@@ -294,7 +300,8 @@ void Action::Shop() { //상점
 							break;
 						}
 						else
-							std::cout << "===골드가 부족합니다!===";
+							std::cout << "===골드가 부족합니다!===" << endl;
+						system("PAUSE");
 						break;}
 				} //choice = 1 / switch 종료
 			break;
@@ -305,7 +312,7 @@ void Action::Shop() { //상점
 			std::cout << "(2) 파란물약 [MP : +10 / 가격 : 10G]" << endl;
 			std::cout << "(3) 엘릭서 [HP : +100 / MP : +100 / 가격 : 150G]" << endl;
 			std::cout << "------------------------------------------" << endl;
-			std::cout << "구매 하실 물약을 선택하세요 !";
+			std::cout << "숫자를 입력해 주세요 : ";
 			cin >> choice;
 			switch (choice) {
 			case 1:
@@ -346,7 +353,7 @@ void Action::Shop() { //상점
 		default:
 			break;
 		} //switch (select) 종료
-	system("PAUSE");
+	//system("PAUSE");
 	system("cls");
 }
 void Action::buy_Accessory(Accessory* a) {
@@ -358,7 +365,7 @@ void Action::buy_Accessory(Accessory* a) {
 	std::cout << '['+a->itemname+']'+" 구매 성공!" << endl;
 	std::cout << "장비 공격력 : " << player->item_stat[0] << endl;
 	std::cout << "장비 방어력 : " << player->item_stat[0] << endl;
-	std::cout << '\n' << endl;
+	system("PAUSE");
 }
 void Action::buy_Drug(Drug* a) {
 	system("cls");
@@ -376,6 +383,7 @@ void Action::buy_Drug(Drug* a) {
 		player->Drugs[2]++;
 		std::cout << "[엘릭서] 구매 성공!" << endl;
 	}
+	system("PAUSE");
 }
 void Action::use_Drugs(Human* P1) {
 	while (1) {
