@@ -11,7 +11,7 @@ Human::Human() {
 	Exp = 0;
 	Max_Exp = 10;
 	Current_MP = 30;
-	money =0;
+	money =9999;
 	item_stat[0] = 0;
 	item_stat[1] = 0;
 

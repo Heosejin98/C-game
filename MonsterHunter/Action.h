@@ -14,8 +14,8 @@ class Action{
 	void Exit(); //나가기
 
 	void Shop(); //상점
-	void buy_Accessory(Accessory* a);
-	void buy_Drug(Drug* a);
+	void buy_Accessory(Accessory* a); //장신구 구매
+	void buy_Drug(Drug* a); //물약 무개
 	void use_Drugs(Human* P1); //물약 사용
 
 	void show_item(); //인벤토리 열람

@@ -70,7 +70,7 @@ void Action::Show_main(string name) {
 		if (player->get_stat(0) != player->get_stat(5) || player->get_Current_MP() != player->get_stat(1)) { //체력 자동 회복
 			player->full_HP();
 			player->full_MP();
-			std::cout << "-체력과 마나가 모두 회복되었습니다-" << '\n' << endl;
+			std::cout << "-HP와 MP가 모두 회복되었습니다-" << '\n' << endl;
 		}
 		std::cout << "[ (1)캐릭터 상태 확인 (2)사냥터 선택 (3)상점 (4)인벤토리 열람 (5)나가기 ]" << endl;
 		std::cout << "숫자를 입력해 주세요 : ";
@@ -195,6 +195,8 @@ void Action::attack_fight(Human* P1, Monster* M1, double attack) { //일반공격 함
 void Action::skill_fight(Human* P1, Monster* M1, double attack) { //스킬 함수
 	double skill_damage;
 	Sleep(500);
+	cout << "현재 레벨 : " << "LV." << player->get_stat(4) << " / MP : " << player->get_Current_MP()  << endl;
+	cout << "-----------------------------" << endl;
 	skill_damage = player->job_skill(player->get_powerstat());
 	M1->input_damage(skill_damage); //공격(스킬) 데미지 구현
 	Sleep(800);
@@ -409,7 +411,7 @@ void Action::use_Drugs(Human* P1) {
 					else {
 						P1->set_stat(5, 10); //stat[5] += 10
 					}
-					std::cout << " -> " << P1->get_stat(5);
+					std::cout << " -> " << P1->get_stat(5) << endl;
 				}
 			} //if (choice == 1) 종료
 			else if (choice == 2) { //파란 물약
@@ -427,7 +429,7 @@ void Action::use_Drugs(Human* P1) {
 						P1->set_Current_MP(10); //stat[5] += 10
 					}
 
-					std::cout << " -> " << P1->get_Current_MP();
+					std::cout << " -> " << P1->get_Current_MP() << endl;
 				}
 			}
 			else if (choice == 3) { //엘릭서
@@ -453,7 +455,7 @@ void Action::use_Drugs(Human* P1) {
 					else {
 						P1->set_Current_MP(100); //stat[5] += 10] += 10
 					}
-					std::cout << " -> " << P1->get_Current_MP();
+					std::cout << " -> " << P1->get_Current_MP() << endl;
 				}
 			} //if (choice <= 3) 종료
 			break;
@@ -464,14 +466,13 @@ void Action::use_Drugs(Human* P1) {
 	} //while문 종료
 }
 void Action::show_item() {
+	std::cout << "- 골드 : " << player->get_money() << "G" << endl;
 	if(player->Drugs[0] >0)
 		std::cout << "- 빨간 물약 / " << player->Drugs[0] << "개" << endl;
 	if (player->Drugs[1] > 0)
 		std::cout << "- 파란 물약 / " << player->Drugs[1] << "개" << endl;
 	if (player->Drugs[2] > 0)
 		std::cout << "- 엘릭서 / " << player->Drugs[2] << "개" << endl;
-	if (player->Drugs[0] == 0 || player->Drugs[1] == 0 || player->Drugs[2] == 0)
-		std::cout << "===아무것도 없습니다===" << '\n' << endl;
 	system("PAUSE");
 	system("cls");
 }
