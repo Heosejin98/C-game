@@ -97,6 +97,7 @@ void Action::Show_main(string name) {
 		}
 		else if (choice == 5) {
 			std::cout << "*****정상적으로 게임이 종료되었습니다*****" << endl;
+			system("PAUSE");
 			break;
 		}
 		else
