@@ -4,7 +4,6 @@
 #include <string>
 #ifndef __Monster__H_
 #define __Monster__H_
-using namespace std;
 
 class Monster : public Life{
 	int drop_money; //드랍 머니

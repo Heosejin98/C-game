@@ -10,9 +10,9 @@ using namespace std;
 Human::Human() {
 	AP = 5;
 	Exp = 0;
-	Max_Exp = 2;
-	Current_MP = 50;
-	money = 99999;
+	Max_Exp = 10;
+	Current_MP = 30;
+	money = 0;
 	item_stat[0] = 0;
 	item_stat[1] = 0;
 
@@ -31,9 +31,9 @@ void Human::Level_Up() { //4 : 레벨
 	Exp = 0; //현재 Exp 0으로 초기화
 }
 void Human::Open_Inventory(){
-	cout << "(1) 빨간 물약 / " << Drugs[0] << "개" << endl;
-	cout << "(2) 파란 물약 / " << Drugs[1] << "개" << endl;
-	cout << "(3) 엘릭서 / " << Drugs[2] << "개" << endl;
+	std::cout << "(1) 빨간 물약 / " << Drugs[0] << "개" << endl;
+	std::cout << "(2) 파란 물약 / " << Drugs[1] << "개" << endl;
+	std::cout << "(3) 엘릭서 / " << Drugs[2] << "개" << endl;
 }
 int Human::Use_AP(int AP){
 
@@ -45,7 +45,7 @@ float Human::Damage_Cal(){
 	srand((unsigned)time(0));
 	int ren = (rand() % 10);
 	if (ren >= 5){
-		cout << "치명타 ! " << endl;
+		std::cout << "치명타 ! " << endl;
 		Damage = (stat[2] + item_stat[0] ) * 1.5;
 	}
 	else
@@ -64,30 +64,30 @@ int Human::Set_money(){
 	return money;
 }
 void Human::State() {
-	cout << "=====능력치=====" << endl;
-	cout << "이름 : " << name << endl;
-	cout << "직업 : " << job << endl;
-	cout << "레벨 : " << stat[4] << endl;
-	cout << "재화 : " << money << endl;
-	cout << "---------------" << endl;
-	cout << "경험치 : " << Exp << '/' << Max_Exp << endl; // "현재 경험치 / 최대 경험치"
-	cout << "HP : " << stat[5] << '/' << stat[0] << endl; // "현재 HP / 최대 HP"
-	cout << "MP : " << Current_MP << '/' << stat[0] << endl; // "현재 MP / 최대 MP"
-	cout << "공격력 : " << stat[2] << endl;
-	cout << "방어력 : " << stat[3] << endl;
-	cout << "착용 장비 : " << "임시" << endl;
-	cout << "장비 공격력 : " << item_stat[0] << endl;
-	cout << "장비 방어력 : " << item_stat[1] << endl;
-	cout << "=============" << endl;
+	std::cout << "=====능력치=====" << endl;
+	std::cout << "이름 : " << name << endl;
+	std::cout << "직업 : " << job << endl;
+	std::cout << "레벨 : " << stat[4] << endl;
+	std::cout << "골드 : " << money << endl;
+	std::cout << "---------------" << endl;
+	std::cout << "경험치 : " << Exp << '/' << Max_Exp << endl; // "현재 경험치 / 최대 경험치"
+	std::cout << "HP : " << stat[5] << '/' << stat[0] << endl; // "현재 HP / 최대 HP"
+	std::cout << "MP : " << Current_MP << '/' << stat[0] << endl; // "현재 MP / 최대 MP"
+	std::cout << "공격력 : " << stat[2] << endl;
+	std::cout << "방어력 : " << stat[3] << endl;
+	std::cout << "착용 장비 : " << "임시" << endl;
+	std::cout << "장비 공격력 : " << item_stat[0] << endl;
+	std::cout << "장비 방어력 : " << item_stat[1] << endl;
+	std::cout << "=============" << endl;
 	system("PAUSE"); //계속하려면 아무 키나 누르십시오
 	system("cls");
 }
 int Human::move_map() {
 	system("cls");
 	while (1) {
-		cout << "=====지역을 선택해주세요=====" << endl;
-		cout << "[ (1)숲 (2)사막 (3)버려진 도시 (4)엔드월드 (5)돌아가기 ]" << endl;
-		cout << "숫자를 입력해 주세요 : ";
+		std::cout << "=====지역을 선택해주세요=====" << endl;
+		std::cout << "[ (1)숲 (2)사막 (3)버려진 도시 (4)엔드월드 (5)돌아가기 ]" << endl;
+		std::cout << "숫자를 입력해 주세요 : ";
 		int choice;
 		cin >> choice;
 		system("cls");
@@ -100,15 +100,15 @@ int Human::move_map() {
 			return choice;
 			break;
 		default:
-			cout << "ERROR - 정확한 값을 입력하세요" << '\n' << endl;
+			std::cout << "ERROR - 정확한 값을 입력하세요" << '\n' << endl;
 		}
 	} //while 종료
 }
 void Human::Player_Die() {
-	cout << '\n';
-	cout << "**************" << endl;
-	cout << "YOU DIED" << endl;
-	cout << "**************" << endl;
+	std::cout << '\n';
+	std::cout << "**************" << endl;
+	std::cout << "YOU DIED" << endl;
+	std::cout << "**************" << endl;
 	Die = true;
 	system("PAUSE"); //계속하려면 아무 키나 누르십시오
 	exit(EXIT_SUCCESS);

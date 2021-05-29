@@ -1,6 +1,6 @@
 #include "item.h"
 #pragma once
-#ifndef __Accessory_H__
+#ifndef __Accessory_H__sin
 #define __Accessory_H__
 #include <string>
 using namespace std;

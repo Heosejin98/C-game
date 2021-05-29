@@ -1,5 +1,4 @@
 #include "Action.h"
-using namespace std;
 
 int main() {
 	Action A;
