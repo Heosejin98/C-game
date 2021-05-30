@@ -62,9 +62,9 @@ void Human::State() {
 	std::cout << "MP : " << Current_MP << '/' << stat[0] << endl; // "현재 MP / 최대 MP"
 	std::cout << "공격력 : " << stat[2] << endl;
 	std::cout << "방어력 : " << stat[3] << endl;
-	std::cout << "착용 장비 : " << "임시" << endl;
-	std::cout << "장비 공격력 : " << item_stat[0] << endl;
-	std::cout << "장비 방어력 : " << item_stat[1] << endl;
+	cout << "착용 장비 : " << equipment << endl;
+	cout << "장비 공격력 : " << item_stat[0] << endl;
+	cout << "장비 방어력 : " << item_stat[1] << endl;
 	std::cout << "=============" << endl;
 	system("PAUSE"); //계속하려면 아무 키나 누르십시오
 	system("cls");

@@ -363,6 +363,7 @@ void Action::buy_Accessory(Accessory* a) {
 	player->set_money(a->price, false); // false 빼기
 	player->item_stat[0] = a->power;
 	player->item_stat[1] = a->defense;
+	player->equipment = a->itemname;
 	std::cout << "상점주인 : 아, 반지! 훌륭한 대화수단이지!" << '\n' << endl;
 	std::cout << '['+a->itemname+']'+" 구매 성공!" << endl;
 	std::cout << "장비 공격력 : " << player->item_stat[0] << endl;

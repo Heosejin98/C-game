@@ -13,6 +13,7 @@ public:
 	string job; //직업 string
 	int item_stat[2]; //장신구 능력치
 	int Drugs[3]{ 0, 0, 0 }; //1-빨간물약, 2-파란물약, 3-엘릭서
+	string equipment = "장비없음"; //착용중인 장비
 
 	Human();
 
