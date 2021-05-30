@@ -11,7 +11,7 @@ Human::Human() {
 	Exp = 0;
 	Max_Exp = 10;
 	Current_MP = 30;
-	money =9999;
+	money =0;
 	item_stat[0] = 0;
 	item_stat[1] = 0;
 
@@ -29,17 +29,12 @@ void Human::Level_Up() { //4 : 레벨
 	Current_MP = stat[1]; //증가된 MP로 회복
 	Exp = 0; //현재 Exp 0으로 초기화
 }
-void Human::Open_Inventory(){
-	std::cout << "(1) 빨간 물약 / " << Drugs[0] << "개" << endl;
-	std::cout << "(2) 파란 물약 / " << Drugs[1] << "개" << endl;
-	std::cout << "(3) 엘릭서 / " << Drugs[2] << "개" << endl;
-}
 float Human::Damage_Cal(){
 
 	float Damage;
 	srand((unsigned)time(0));
-	int ren = (rand() % 10);
-	if (ren >= 5){
+	int ren = rand() % 10 + 1;
+	if (ren == 1){
 		std::cout << "치명타 ! " << endl;
 		Damage = (stat[2] + item_stat[0] ) * 1.5;
 	}
@@ -51,9 +46,6 @@ float Human::Damage_Cal(){
 double Human::Use_item(double stat[]){
 	
 	return 0;
-}
-void Human::Shop(){
-
 }
 int Human::Set_money(){
 	return money;

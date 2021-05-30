@@ -18,12 +18,10 @@ public:
 
 	virtual double job_skill(const double stat[]) = 0; // 직업별 스킬 사용 순수 가상함수
 
-	void Shop(); //상점 열람
 	void State(); //캐릭터 상태 확인
 	void Player_Die(); //플레이어 죽음
 	void full_MP(); //MP 풀 회복
 	void Level_Up(); //레벨 업
-	void Open_Inventory(); //인벤토리 오픈 함수
 
 	int move_map(); //맵 이동
 	float Damage_Cal(); //공격 데미지
