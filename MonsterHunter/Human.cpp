@@ -7,15 +7,8 @@
 #include <iostream>
 using namespace std;
 
-Human::Human() {
-	Exp = 0;
-	Max_Exp = 10;
-	Current_MP = 30;
-	money =0;
-	item_stat[0] = 0;
-	item_stat[1] = 0;
 
-}
+
 void Human::Level_Up() { //4 : 레벨
 	//stat[6] = 0 : 최대HP, 1 : 최대MP, 2 : 공격력, 3 : 방어력, 4 : 레벨, 5 : 현재HP
 	Max_Exp *= 1.5; //Max Exp 증가
@@ -29,6 +22,7 @@ void Human::Level_Up() { //4 : 레벨
 	Current_MP = stat[1]; //증가된 MP로 회복
 	Exp = 0; //현재 Exp 0으로 초기화
 }
+
 float Human::Damage_Cal(){
 
 	float Damage;
@@ -43,13 +37,8 @@ float Human::Damage_Cal(){
 
 	return Damage;
 }
-double Human::Use_item(double stat[]){
-	
-	return 0;
-}
-int Human::Set_money(){
-	return money;
-}
+
+
 void Human::State() {
 	std::cout << "=====능력치=====" << endl;
 	std::cout << "이름 : " << name << endl;
@@ -78,19 +67,17 @@ int Human::move_map() {
 		int choice;
 		cin >> choice;
 		system("cls");
-		switch (choice) {
-		case 1:
-		case 2:
-		case 3:
-		case 4:
-		case 5:
+		if (5 >= choice && choice > 0) {
 			return choice;
 			break;
-		default:
+		}
+		else
+		{
 			std::cout << "ERROR - 정확한 값을 입력하세요" << '\n' << endl;
 		}
+			
+		}
 	} //while 종료
-}
 void Human::Player_Die() {
 	std::cout << '\n';
 	std::cout << "**************" << endl;
@@ -115,3 +102,7 @@ void Human::full_MP() {
 void Human::set_Current_MP(double a) {
 	Current_MP += a;
 }
+bool Human::operator!() {
+	if (stat[5] <= 0) return true;
+	else return false;
+};

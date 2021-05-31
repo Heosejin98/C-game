@@ -142,23 +142,27 @@
     <ClCompile Include="Accessory.cpp" />
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="Archer.cpp" />
+    <ClCompile Include="Drug.cpp" />
     <ClCompile Include="Human.cpp" />
     <ClCompile Include="item.cpp" />
     <ClCompile Include="Knight.cpp" />
     <ClCompile Include="Life.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="UI.cpp" />
     <ClCompile Include="Wizard.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Accessory.h" />
     <ClInclude Include="Action.h" />
     <ClInclude Include="Archer.h" />
+    <ClInclude Include="Drug.h" />
     <ClInclude Include="Human.h" />
     <ClInclude Include="item.h" />
     <ClInclude Include="Knight.h" />
     <ClInclude Include="Life.h" />
     <ClInclude Include="Monster.h" />
+    <ClInclude Include="UI.h" />
     <ClInclude Include="Wizard.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

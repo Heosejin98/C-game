@@ -4,8 +4,9 @@
 #include <iostream>
 Archer::Archer() {
 	job = "±Ã¼ö";
+	
 }
-Archer::Archer(string name) {
+Archer::Archer(string cin_name)  {
 	this->name = name;
 	job = "±Ã¼ö";
 }

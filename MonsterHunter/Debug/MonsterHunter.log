@@ -1,3 +1,3 @@
 ﻿  Action.cpp
-C:\Users\sejin\OneDrive\바탕 화면\5.29C++\MonsterHunter\Action.cpp(22,6): warning C4101: 'skill' :참조되지 않은 지역 변수입니다.
-C:\Users\sejin\OneDrive\바탕 화면\5.29C++\MonsterHunter\Action.cpp(354): fatal error C1075: '{': 일치하는 토큰을 찾을 수 없습니다.
+C:\Users\sejin\OneDrive\바탕 화면\c++last\C-game\MonsterHunter\Action.cpp(25,6): warning C4101: 'skill' :참조되지 않은 지역 변수입니다.
+  MonsterHunter.vcxproj -> C:\Users\sejin\OneDrive\바탕 화면\c++last\C-game\MonsterHunter\Debug\MonsterHunter.exe

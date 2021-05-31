@@ -58,9 +58,10 @@ void Monster::Monster_Die(Human* P1) {
 	P1->set_Exp(Exp);
 	std::cout << money << "ÀÇ °ñµå È¹µæ!" << endl;
 	std::cout << Exp << "ÀÇ °æÇèÄ¡ È¹µæ!" << endl;
+	std::cout << "Lv." << P1->get_stat(4) - 1 << " -> LV." << P1->get_stat(4) << endl;
 
 	if (P1->get_Exp() >= P1->get_Max_Exp()) {
-		P1->Level_Up();
+		++P1;
 		std::cout << "-----·¹º§¾÷!!-----" << endl;
 		std::cout << "Lv." << P1->get_stat(4) - 1 << " -> LV." << P1->get_stat(4) << endl;
 		std::cout << "----------------" << endl;

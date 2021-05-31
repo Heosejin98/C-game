@@ -4,3 +4,5 @@ C:\Users\sejin\OneDrive\바탕 화면\test\MonsterHunter\Debug\MonsterHunter.exe
 C:\Users\sejin\OneDrive\바탕 화면\test\MonsterHunter\Debug\MonsterHunter.pdb
 C:\Users\sejin\OneDrive\바탕 화면\5.29C++\MonsterHunter\Debug\MonsterHunter.exe
 C:\Users\sejin\OneDrive\바탕 화면\5.29C++\MonsterHunter\Debug\MonsterHunter.pdb
+C:\Users\sejin\OneDrive\바탕 화면\c++last\C-game\MonsterHunter\Debug\MonsterHunter.exe
+C:\Users\sejin\OneDrive\바탕 화면\c++last\C-game\MonsterHunter\Debug\MonsterHunter.pdb
