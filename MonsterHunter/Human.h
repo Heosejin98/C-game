@@ -16,9 +16,9 @@ public:
 	int Drugs[3][3]{ {0, 0, 0}, { 0, 0, 0 }, {0, 0, 0} }; //1-빨간물약, 2-파란물약, 3-엘릭서
 	string equipment = "장비없음"; //착용중인 장비
 
-	Human() : Max_Exp(10), Current_MP(30) {
+	Human() : Max_Exp(10), Current_MP(15) {
 		Exp = 0;
-		money = 1000;
+		money = 0;
 		item_stat[0] = 0;
 		item_stat[1] = 0;
 		
@@ -27,7 +27,7 @@ public:
 	virtual double job_skill(const double stat[]) = 0; // 직업별 스킬 사용 순수 가상함수
 
 	void State(); //캐릭터 상태 확인
-	void Player_Die(); //플레이어 죽음
+	void Player_Die(Human* P1); //플레이어 죽음
 	void full_MP(); //MP 풀 회복
 	void Level_Up(); //레벨 업
 	

@@ -48,7 +48,7 @@ void Human::State() {
 	std::cout << "---------------" << endl;
 	std::cout << "경험치 : " << Exp << '/' << Max_Exp << endl; // "현재 경험치 / 최대 경험치"
 	std::cout << "HP : " << stat[5] << '/' << stat[0] << endl; // "현재 HP / 최대 HP"
-	std::cout << "MP : " << Current_MP << '/' << stat[0] << endl; // "현재 MP / 최대 MP"
+	std::cout << "MP : " << Current_MP << '/' << stat[1] << endl; // "현재 MP / 최대 MP"
 	std::cout << "공격력 : " << stat[2] << endl;
 	std::cout << "방어력 : " << stat[3] << endl;
 	cout << "착용 장비 : " << equipment << endl;
@@ -78,12 +78,13 @@ int Human::move_map() {
 			
 		}
 	} //while 종료
-void Human::Player_Die() {
+void Human::Player_Die(Human* P1) {
 	std::cout << '\n';
 	std::cout << "**************" << endl;
 	std::cout << "YOU DIED" << endl;
 	std::cout << "**************" << endl;
 	Die = true;
+	delete P1;
 	system("PAUSE"); //계속하려면 아무 키나 누르십시오
 	exit(EXIT_SUCCESS);
 }

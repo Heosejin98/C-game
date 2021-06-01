@@ -52,20 +52,21 @@ Monster::Monster(int map){
 		break;
 	}
 }
-void Monster::Monster_Die(Human* P1) {
+void Monster::Monster_Die(Human* P1, Monster* M1) {
 	std::cout << "-----" << name << "ÀÌ(°¡) Á×¾ú½À´Ï´Ù!-----" << endl;
 	P1->set_money(money, true); //HumanÀÇ money += ¸ó½ºÅÍÀÇ money
 	P1->set_Exp(Exp);
 	std::cout << money << "ÀÇ °ñµå È¹µæ!" << endl;
 	std::cout << Exp << "ÀÇ °æÇèÄ¡ È¹µæ!" << endl;
-	std::cout << "Lv." << P1->get_stat(4) - 1 << " -> LV." << P1->get_stat(4) << endl;
+	//std::cout << "Lv." << P1->get_stat(4) - 1 << " -> LV." << P1->get_stat(4) << endl;
 
 	if (P1->get_Exp() >= P1->get_Max_Exp()) {
-		++P1;
+		P1->Level_Up();
 		std::cout << "-----·¹º§¾÷!!-----" << endl;
 		std::cout << "Lv." << P1->get_stat(4) - 1 << " -> LV." << P1->get_stat(4) << endl;
 		std::cout << "----------------" << endl;
 	}
 
 	Die = true; //Á×À¸¸é true
+	delete M1;
 }

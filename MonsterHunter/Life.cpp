@@ -1,12 +1,12 @@
 #include "Life.h"
 
 Life::Life() {
-	stat[0] = 50; // 최대HP
-	stat[1] = 30; // 최대MP
+	stat[0] = 30; // 최대HP
+	stat[1] = 15; // 최대MP
 	stat[2] = 10; //공격력
 	stat[3] = 10; //방어력
 	stat[4] = 1; //레벨
-	stat[5] = -20; //현재 HP
+	stat[5] = 30; //현재 HP
 
 	name = "인간1";
 };

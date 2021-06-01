@@ -102,6 +102,7 @@ void Action::Show_main(Human* P1) {
 		}
 		else if (choice == 5) {
 			std::cout << "*****정상적으로 게임이 종료되었습니다*****" << endl;
+			delete P1;
 			system("PAUSE");
 			break;
 		}
@@ -170,7 +171,7 @@ void Action::attack_fight(Human* P1, Monster* M1) { //일반공격 함수
 	std::cout << '\n';
 
 	if (M1->get_stat(5) <= 0) //몬스터 체력이 0 이하가 되면 몬스터 죽임
-		M1->Monster_Die(P1);
+		M1->Monster_Die(P1, M1);
 	else {
 		Sleep(800);
 		double attack = M1->get_stat(2); //몬스터 공격
@@ -180,7 +181,7 @@ void Action::attack_fight(Human* P1, Monster* M1) { //일반공격 함수
 	}
 	if (P1->get_stat(5) <= 0) { //플레이어 죽음
 		Sleep(800); //0.8초 딜레이
-		P1->Player_Die();
+		P1->Player_Die(P1);
 	}
 	Sleep(800); //0.8초 딜레이
 	std::cout << '\n';
@@ -197,7 +198,7 @@ void Action::skill_fight(Human* P1, Monster* M1) { //스킬 함수
 	std::cout << P1->name + "은 " << skill_damage << "의 공격을 했다!" << endl;
 	
 	if (M1->get_stat(5) <= 0) //몬스터 체력이 0 이하가 되면 몬스터 죽임
-		M1->Monster_Die(P1);
+		M1->Monster_Die(P1, M1);
 	else {
 		Sleep(500);
 		std::cout << '\n';
@@ -209,7 +210,7 @@ void Action::skill_fight(Human* P1, Monster* M1) { //스킬 함수
 	}
 	if (P1->get_stat(5) <= 0) { //플레이어 죽음
 		Sleep(800);
-		P1->Player_Die();
+		P1->Player_Die(P1);
 	}
 	std::cout << '\n';
 }
@@ -233,7 +234,7 @@ bool Action::escape_run(Human* P1, Monster* M1, bool escape) {
 	}
 	if (P1->get_stat(5) <= 0) { //플레이어 죽음
 		Sleep(800);
-		P1->Player_Die();
+		P1->Player_Die(P1);
 	}
 	return escape;
 }

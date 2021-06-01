@@ -13,7 +13,7 @@ public:
 	Monster();
 	Monster(int map); // 1. 숲 / 2. 사막 / 3. 버려진 도시 / 4. 엔드월드
 
-	void Monster_Die(Human* P1); //몬스터 죽음
+	void Monster_Die(Human* P1, Monster* M1); //몬스터 죽음
 
 	int get_monster_skill();
 	int get_drop_money();
